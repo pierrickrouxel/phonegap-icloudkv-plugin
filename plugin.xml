@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+           id="fr.pierrickrouxel.iCloudKV"
+      version="0.1.0">
+
+    <name>iCloudKV</name>
+    <description>Cordova iCloud Key Value Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,icloud</keywords>
+
+    <asset src="www/iCloudKV.js" target="iCloudKV.js" />
+
+    <!-- ios -->
+    <platform name="ios">    
+        <config-file target="config.xml" parent="/*">
+            <feature name="iCloudKV">
+                <param name="ios-package" value="iCloudKV"/>
+            </feature>
+        </config-file>
+        <header-file src="src/ios/iCloudKV.h" />
+        <source-file src="src/ios/iCloudKV.m" />          
+    </platform>
+
+</plugin>
