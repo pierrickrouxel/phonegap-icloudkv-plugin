@@ -16,13 +16,8 @@ cordova plugin add http://github.com/pierrickrouxel/phonegap-icloudkv-plugin
 ```
 
 ## Using the plugin ##
-Import iCloudKV.js
 
-```HTML
-<script src="iCloudKV.js" type="text/javascript"></script>
-```
-
-The plugin creates the object `iCloudKV` with the following methods:
+The plugin becomes available when DeviceReady event is fired, it creates the object `iCloudKV` with the following methods:
 
     sync(successCallback/*(dictionary_with_all_sync_keys)*/ , failCallback) 
        In addition to calling NSUbiquitousKeyValueStore sync method the plugin's sync returns the dictionary holding all iCloud data for the app.

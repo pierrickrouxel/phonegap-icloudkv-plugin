@@ -2,14 +2,20 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
            id="fr.pierrickrouxel.iCloudKV"
-      version="0.1.0">
+      version="0.2.0">
 
     <name>iCloudKV</name>
     <description>Cordova iCloud Key Value Plugin</description>
     <license>Apache 2.0</license>
-    <keywords>cordova,icloud</keywords>
-
-    <asset src="www/iCloudKV.js" target="iCloudKV.js" />
+    <keywords>cordova,icloud,ios</keywords>
+    
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+    
+    <js-module src="www/iCloudKV.js" name="iCloudKV">
+        <clobbers target="iCloudKV" />
+    </js-module>
 
     <!-- ios -->
     <platform name="ios">    
