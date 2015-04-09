@@ -1,34 +1,34 @@
 // Copyright (c) Alex Drel 2012
 
-var iCloudKV = (function (ckv) {
+var iCloudKV = exports;
 
-    var onChange = null;
+var exec = require('cordova/exec');
+var cordova = require('cordova');
 
-    ckv.sync = function (success, fail) {
-        return cordova.exec(success /*(dictionary_with_all_sync_keys)*/, fail, "iCloudKV", "sync", []);
-    };
+iCloudKV.onChange = null;
 
-    ckv.save = function (key, value, success) {
-        return cordova.exec(success, null, "iCloudKV", "save", [key, value]);
-    };
+iCloudKV.sync = function(success, fail) {
+  exec(success /*(dictionary_with_all_sync_keys)*/, fail, "iCloudKV", "sync", []);
+};
 
-    ckv.load = function (key, success, fail) {
-        return cordova.exec(success /*(value)*/, fail, "iCloudKV", "load", [key]);
-    };
+iCloudKV.save = function (key, value, success) {
+  exec(success, null, "iCloudKV", "save", [key, value]);
+};
 
-    ckv.remove = function (key, success) {
-        return cordova.exec(success, null, "iCloudKV", "remove", [key]);
-    };
+iCloudKV.load = function (key, success, fail) {
+  exec(success /*(value)*/, fail, "iCloudKV", "load", [key]);
+};
 
-    ckv.monitor = function (notification /*(keys)*/, success) {
-        onChange = notification;
-        return cordova.exec(success, null, "iCloudKV", "monitor", []);
-    };
+iCloudKV.remove = function (key, success) {
+  exec(success, null, "iCloudKV", "remove", [key]);
+};
 
-    ckv.onChange = function (keys) {
-        if (onChange)
-            onChange(keys);
-    };
+iCloudKV.monitor = function (notification /*(keys)*/, success) {
+  this.onChange = notification;
+  exec(success, null, "iCloudKV", "monitor", []);
+};
 
-    return ckv;
-})(iCloudKV || {});
+iCloudKV.didChanged = function (keys) {
+  if (this.onChange)
+    this.onChange(keys);
+};

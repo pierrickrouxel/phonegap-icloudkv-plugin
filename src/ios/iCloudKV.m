@@ -110,7 +110,7 @@
             NSLog(@"iCloudKV server change notification.");
             NSDictionary    *changedKeys   = [[receivedNotification userInfo] valueForKey:NSUbiquitousKeyValueStoreChangedKeysKey];
 
-            NSString *jsStatement = [NSString stringWithFormat:@"iCloudKV.onChange(%@);", [NSJSONSerialization dataWithJSONObject:changedKeys options:NSJSONWritingPrettyPrinted error:nil]];
+            NSString *jsStatement = [NSString stringWithFormat:@"iCloudKV.didChanged(%@);", [NSJSONSerialization dataWithJSONObject:changedKeys options:NSJSONWritingPrettyPrinted error:nil]];
             [self writeJavascript:jsStatement];
             break;
     }

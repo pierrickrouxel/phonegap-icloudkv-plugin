@@ -1,25 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-           id="fr.pierrickrouxel.iCloudKV"
-      version="0.1.0">
+           id="fr.pierrickrouxel.cordova.plugin.iCloudKV"
+      version="0.3.0">
 
     <name>iCloudKV</name>
     <description>Cordova iCloud Key Value Plugin</description>
+    <author>Pierrick Rouxel</author>
     <license>Apache 2.0</license>
-    <keywords>cordova,icloud</keywords>
+    <keywords>cordova,icloud,ios</keywords>
+    <repo>https://github.com/pierrickrouxel/phonegap-icloudkv-plugin</repo>
 
-    <asset src="www/iCloudKV.js" target="iCloudKV.js" />
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <js-module src="www/iCloudKV.js" name="iCloudKV">
+        <clobbers target="iCloudKV" />
+    </js-module>
 
     <!-- ios -->
-    <platform name="ios">    
+    <platform name="ios">
         <config-file target="config.xml" parent="/*">
             <feature name="iCloudKV">
                 <param name="ios-package" value="iCloudKV"/>
             </feature>
         </config-file>
         <header-file src="src/ios/iCloudKV.h" />
-        <source-file src="src/ios/iCloudKV.m" />          
+        <source-file src="src/ios/iCloudKV.m" />
     </platform>
 
 </plugin>
