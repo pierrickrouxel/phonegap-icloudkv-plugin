@@ -13,4 +13,6 @@
 - (void)load:(CDVInvokedUrlCommand *)command;
 - (void)remove:(CDVInvokedUrlCommand *)command;
 - (void)monitor:(CDVInvokedUrlCommand *)command;
+- (void)writeJavascript:(CDVInvokedUrlCommand *)command;
+
 @end
